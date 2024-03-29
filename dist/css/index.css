@@ -1,10 +1,4 @@
-/* Error: Can't find stylesheet to import.
- *      ,
- * 1751 | @import "variables-dark"; // TODO: can be removed safely in v6, only here to avoid breaking changes in v5.3
- *      |         ^^^^^^^^^^^^^^^^
- *      '
- *   src\scss\_variables.scss 1751:9  @import
- *   src\scss\index.scss 2:9          root stylesheet */
+
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
