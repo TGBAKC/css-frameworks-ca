@@ -1,0 +1,18 @@
+/* Error: Can't find stylesheet to import.
+ *      ,
+ * 1751 | @import "variables-dark"; // TODO: can be removed safely in v6, only here to avoid breaking changes in v5.3
+ *      |         ^^^^^^^^^^^^^^^^
+ *      '
+ *   src\scss\_variables.scss 1751:9  @import
+ *   src\scss\index.scss 2:9          root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a      \2577 \a 1751 \2502  @import \"variables-dark\"; // TODO: can be removed safely in v6, only here to avoid breaking changes in v5.3\d\a      \2502          ^^^^^^^^^^^^^^^^\a      \2575 \a   src\\scss\\_variables.scss 1751:9  @import\a   src\\scss\\index.scss 2:9          root stylesheet";
+}
