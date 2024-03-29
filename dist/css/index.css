@@ -8,5 +8,20 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a      \2577 \a 1751 \2502  @import \"variables-dark\"; // TODO: can be removed safely in v6, only here to avoid breaking changes in v5.3\d\a      \2502          ^^^^^^^^^^^^^^^^\a      \2575 \a   src\\scss\\_variables.scss 1751:9  @import\a   src\\scss\\index.scss 2:9          root stylesheet";
+ 
+}
+
+
+.follow-btn {
+  background-color: #007bff; 
+  color: white;
+  &:hover {
+    background-color: darken(#007bff, 10%); 
+  }
+}
+
+.user-posts {
+  .card {
+    margin-bottom: 1rem; 
+  }
 }
