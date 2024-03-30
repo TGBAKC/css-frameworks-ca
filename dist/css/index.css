@@ -10,6 +10,14 @@ body::before {
   border-bottom: 2px solid black;
  
 }
+/* custom.css */
+.nav-link.fw-bold {
+  font-weight: bold !important;
+}
+.custom-border {
+  border-bottom: 5px solid ; /* Çizginin kalınlığı ve rengi */
+  display: inline-block; /* Çizginin <a> etiketinin genişliğine uyum sağlaması için */
+}
 
 
 .follow-btn {
