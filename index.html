@@ -3,42 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication Page</title>
-    <script
-			defer
-			src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Authentication-Page</title>
+    <meta property="og:title" content="authentication-page">
+    <meta property="og:description" content="A short description of your feed page.">
+    <meta name="author" content="Tugba AKCA">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container ">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-title text-center">Login </h2>
-                        <form id="authForm" action="/profile" method="POST" novalidate>
+                        <h2 class="card-title text-center">Login</h2>
+                        <form id="authForm" action="/profile" method="POST">
                             <div class="form-group">
                                 <label for="email">Email address</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
                                 <div class="invalid-feedback">Please enter a valid email address.</div>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" minlength="8" required>
-                                <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+                                <label for="inputPassword5" class="form-label">Password</label>
+                                <input type="password" id="inputPassword5" class="form-control" name="password" aria-describedby="passwordHelpBlock" required minlength="8" maxlength="20">
+                                <div id="passwordHelpBlock" class="form-text">
+                                    Password must have a minimum length of 8 characters. 
+                                </div>
                             </div>
-                            <a href="/profile/index.html" class="btn btn-primary mt-4">Login</a>
+                            <a href="/feed/index.html" class="btn btn-primary mt-4" role="button">Login</a>
 
                         </form>
                     </div>
                 </div>
+      
+                </div>
             </div>
         </div>
-    </div>
-
+  
+  
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
 </body>
 </html>
