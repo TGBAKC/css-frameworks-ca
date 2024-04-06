@@ -15,8 +15,8 @@ body::before {
   font-weight: bold !important;
 }
 .custom-border {
-  border-bottom: 5px solid ; /* Çizginin kalınlığı ve rengi */
-  display: inline-block; /* Çizginin <a> etiketinin genişliğine uyum sağlaması için */
+  border-bottom: 5px solid ; 
+  display: inline-block; 
 }
 
 
