@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    // Dropdown'u etkinleştir
+ 
     $('.dropdown-toggle').dropdown();
 
-    // Dropdown olaylarını dinle
+
     $('#dropdownMenuButton').on('show.bs.dropdown', function () {
       console.log('Dropdown gösteriliyor.');
     });
