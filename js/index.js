@@ -19,3 +19,6 @@ $(document).ready(function() {
       console.log('Dropdown gizlendi.');
     });
   });
+
+
+ 
