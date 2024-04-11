@@ -1,0 +1,59 @@
+
+
+
+
+
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+ 
+}
+/* custom.css */
+.nav-link.fw-bold {
+  font-weight: bold !important;
+}
+.custom-border {
+  border-bottom: 5px solid ; 
+  display: inline-block; 
+}
+
+
+.follow-btn {
+  background-color: #007bff; 
+  color: white;
+  &:hover {
+    background-color: darken(#007bff, 10%); 
+  }
+}
+
+.user-posts {
+  .card {
+    margin-bottom: 1rem; 
+  }
+}
+
+.btn-outline-success.custom-color {
+  color: red;
+  border-color: red;
+  background-color: red;
+  color: white;
+}
+.btn-outline-success.custom-color:hover {
+  color: white;
+  background-color: green;
+  border-color: green;
+}
+.custom-color {
+  background-color: #28a745; /* Yeşil */
+  border-color: #28a745; /* Yeşil */
+}
+
+body{
+  background-color: #83868817;  
+}
