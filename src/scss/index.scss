@@ -1,9 +1,47 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-// index.scss
+@import "variables";
 
+body{
+   background-color: $primary;
+}
 
 .form-container {
-    max-width: 400px;
-    margin: auto;
-  }
-  
+   background-color: $cyan;
+
+   padding: $padding-sides;
+
+}
+.form-container {
+   max-width: 20rem;
+ }
+ 
+ .accordion {
+   .accordion-body {
+     padding-left: 10px;
+     padding-right: 10px;
+   }
+ }
+ 
+ .button-wrap {
+   max-width: min-content;
+ 
+   button {
+     white-space: nowrap;
+   }
+ }
+ 
+ form {
+   .search {
+     border: $primary 3px solid;
+   }
+ 
+   textarea,
+   .search {
+     border-radius: 20px 0 0 20px !important;
+   }
+ 
+   .form-btn  {
+     border-radius: 0 20px 20px 0;
+   }
+ }
