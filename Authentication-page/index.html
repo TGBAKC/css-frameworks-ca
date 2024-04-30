@@ -1,50 +1,208 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Authentication Page</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
- 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Profil Page</title>
+<meta property="og:title" content="profile-page">
+<meta property="og:description" content="A short description of your feed page.">
+<meta name="author" content="Tugba AKCA">
+<link rel="stylesheet" href="../dist/css/index.css">
+<script type="module" src="/js/index.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/index.html">TugbaAKCA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/profile/index.html">Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/feed/index.html">Feed</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="form-container">
-        <!-- Authentication form -->
-        <form action="/profile" method="post" class="needs-validation" novalidate>
-          <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" required>
-            <div class="invalid-feedback">
-              Please enter a username.
+  <section class=" px-4 py-5 gradient-custom-2">
+ 
+    <div class="row d-flex justify-content-center">
+      <div class="col col-lg-9 col-xl-8 col-sm-8 col-md-8 col-12 ">
+        <div class="card">
+          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:300px;">
+            <div class="ms-4 mt-5 ml-2 d-flex flex-column ">
+              <img src="/images/raven-black-adsiz-resim-5.jpg" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-3 " style="width: 15rem; height:auto;
+              z-index: 1">
+              <div class="d-flex flex-column bd-highlight "></div>
+              <button type="button" class="btn btn-primary mt-4 " data-mdb-ripple-color="dark" style="z-index: 1;">
+                Follow
+                 </button>
+                 
+            </div>
+            <div class="ms-3 ml-2" style="margin-top: 130px;">
+              <h5>Tugba AKCA</h5>
+              <p>Stavanger</p>
             </div>
           </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-            <div class="invalid-feedback">
-              Please enter a valid email address.
+         <div class="p-4 text-black" style="background-color: #f8f9fa;">
+<div class="row justify-content-md-center justify-content-sm-end text-center py-1">
+<div class="col-md-auto col-sm-auto">
+  <p class="mb-1 h5">253</p>
+  <p class="small text-muted mb-0">Photos</p>
+</div>
+<div class="col-md-auto col-sm-auto px-3">
+  <p class="mb-1 h5">1026</p>
+  <p class="small text-muted mb-0">Followers</p>
+</div>
+<div class="col-md-auto col-sm-auto">
+  <p class="mb-1 h5">478</p>
+  <p class="small text-muted mb-0">Following</p>
+</div>
+</div>
+</div>
+
+          <div class="card-body p-4 text-black">
+            <div class="mb-5">
+              <p class="lead fw-normal mb-1">About</p>
+              <div class="p-4" style="background-color: #f8f9fa;">
+                <p class="font-italic mb-1">Web Developer</p>
+                <p class="font-italic mb-1">Lives in Norway</p>
+                <p class="font-italic mb-0">Happy life</p>
+              </div>
             </div>
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" minlength="8" required>
-            <div class="invalid-feedback">
-              Password must be at least 8 characters.
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary">Login / Register</button>
-        </form>
+        </div>
+      </div>
+    
+  </section>
+ 
+
+  
+    </div>
+  <!-- Posts Section -->
+ <nav class="navbar navbar-expand ml-5 mr-5">
+  <div class="container-fluid d-flex flex-column-reverse flex-sm-row mx-0 px-0">
+    <div class="collapse navbar-collapse border-bottom border-w-green ">
+      <div class="navbar-nav">
+        <a class="nav-link active green fw-bold custom-border" aria-current="page" href="#">Posts</a>
+        <a class="nav-link text-green fw-bold" href="#">Following</a>
+        <a class="nav-link text-green fw-bold" href="#">Followers</a>
       </div>
     </div>
   </div>
-</div>
+ </nav>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+      <div class="card mb-3 m-5">
+        <div class="card-body ">
+          <h5 class="card-title"> Introducing the Latest VR Headset: A Game-Changer in Virtual Reality</h5>
+          <p class="card-text">The new XYZ VR headset is here, and it's set to revolutionize the virtual reality experience. With enhanced resolution, wider field of view, and superior comfort, this headset offers an immersive experience like no other. Dive into a new world where possibilities are endless. 🕶️🌐</p>
+        </div>
+        <div class="card-footer bg-white px-0 ">
+          <div class="row">
+
+              <div class=" col-md-auto ">
+                  <a href="#" class="btn btn-outlined btn-black text-muted bg-transparent" data-wow-delay="0.7s"><img src="https://img.icons8.com/ios/50/000000/settings.png" width="19" height="19" alt="icons"> <small>SETTINGS</small></a>
+
+                  <i class="mdi mdi-settings-outline"></i>
+
+
+
+
+                  <a href="#" class="
+                   btn-outlined btn-black text-muted"><img src="https://img.icons8.com/metro/26/000000/link.png" width="17" height="17" class="plus-icon" alt="icons">
+
+                      <small>PROGRAM LINK</small> </a>
+
+
+                  <a href="#" class="btn btn-outlined btn-black text-muted "><img src="https://img.icons8.com/metro/26/000000/more.png" width="20" height="20" class="mr-2 more" alt="icons"><small>MORE</small></a>
+                  <span class="vl ml-3"></span>
+              </div>
+
+             
+          </div>
+      </div>
+      </div>
+      <div class="card mb-3 m-5">
+  
+        <div class="card-body">
+          <h5 class="card-title">5 Essential Tips for Beginner Python Programmers</h5>
+          <p class="card-text"> Starting your journey with Python? Here are five indispensable tips to set you on the right path: from understanding the basics of Python syntax to embracing the power of libraries. Remember, the best way to learn is by doing. Happy coding! 💻🐍</p>
+        </div>
+        <div class="card-footer bg-white px-0">
+          <div class="row">
+              <div class=" col-md-auto ">
+                  <a href="#" class="btn btn-outlined btn-black text-muted bg-transparent" data-wow-delay="0.7s"><img src="https://img.icons8.com/ios/50/000000/settings.png" width= "19" height= "19" alt= "Add icons"> <small>SETTINGS</small></a>
+
+                  <i class="mdi mdi-settings-outline"></i>
+
+
+
+
+                  <a href="#" class="
+                   btn-outlined btn-black text-muted"><img src="https://img.icons8.com/metro/26/000000/link.png" width="17" height="17" id="plus" alt="icons">
+                      <small>PROGRAM LINK</small> </a>
+
+
+                  <a href="#" class="btn btn-outlined btn-black text-muted "><img src="https://img.icons8.com/metro/26/000000/more.png" width="20" height="20" class="mr-2 more" alt="icons"><small>MORE</small></a>
+                  <span class="vl ml-3"></span>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="card mb-3 m-5 ">
+    
+        
+        <div class="card-body">
+          <h5 class="card-title">JavaScript vs. Python: Which Should You Learn in 2023?</h5>
+          <p class="card-text">Choosing the right programming language can be a daunting task for beginners. In this post, we'll compare JavaScript and Python - two of the most popular programming languages today - in various aspects to help you make an informed decision. Whether you're into web development or data science, read on to find out which language suits your goals better. 💻🔍</p>
+        </div>
+        <div class="card-footer bg-white px-0 ">
+          <div class="row">
+
+              <div class=" col-md-auto ">
+                  <a href="#" class="btn btn-outlined btn-black text-muted bg-transparent" data-wow-delay="0.7s"><img src="https://img.icons8.com/ios/50/000000/settings.png" width="19" height="19" alt="icons"> <small>SETTINGS</small></a>
+
+                  <i class="mdi mdi-settings-outline"></i>
+
+
+
+
+                  <a href="#" class="
+                   btn-outlined btn-black text-muted"><img src="https://img.icons8.com/metro/26/000000/link.png" width= "17" height= "17" id= "plus1" alt= "icons"
+                   >
+                      <small>PROGRAM LINK</small> </a>
+
+
+                  <a href="#" class="btn btn-outlined btn-black text-muted "><img src="https://img.icons8.com/metro/26/000000/more.png" width="20" height="20" class="mr-2 more" alt="icons"><small>MORE</small></a>
+                  <span class="vl ml-3"></span>
+              </div>
+
+           
+          </div>
+      </div>
+      </div>
+  
+<footer>
+<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+  © 2023 Copyright:
+  <span class="text-reset fw-bold">Css-frameworks</span>
+</div>
+</footer>
+
 </body>
 </html>
