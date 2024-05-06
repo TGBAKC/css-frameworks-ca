@@ -1,4 +1,4 @@
-import { API_BASE,API_POSTS } from "../constants.js";
+import { API_BASE,API_KEY } from "../constants.js";
 import { load } from "../storage/load.js";
 
 
