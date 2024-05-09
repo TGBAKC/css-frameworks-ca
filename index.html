@@ -1,26 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="this is my CSS Frameworks CA, a piece of student work.">
     <title>Loginpage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./dist/css/index.css">
     <link rel="icon" type="image/x-icon" href="/path/to/favicon.ico">
-
     <script type="module" src="index.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-
-  </head>
-  <body class="d-flex flex-column min-vh-100">
-   <form name="auth">
-    <input type ="text" name="name">
-    <input type="email" name="email">
-    <input type="password" name="password">
-    <button data-auth ="register">register</button>
-    <button data-auth="login">login</button>
-   </form>
-  </body>
+    <style>
+        body {
+            background-color: #c9d6ff;
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        }
+    </style>
+</head>
+<body>
+  <div class="container-fluid mt-5">
+    <div class="row justify-content-center"> <!-- Yatay olarak ortalamak için -->
+        <div class="col-md-6">
+            <div class="form-container sign-up bg-white">
+                <form>
+                    <h1 class="mb-4">Create Account</h1>
+                    <div class="social-icons mb-4">
+                        <a href="#" class="icon"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="mb-2">or use your email for registration</p>
+                    <input type="text" class="form-control mb-3" placeholder="Name">
+                    <input type="email" class="form-control mb-3" placeholder="Email">
+                    <input type="password" class="form-control mb-3" placeholder="Password">
+                    <button class="btn btn-primary">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-container sign-in bg-primary text-white">
+                <form>
+                    <h1 class="mb-4">Sign In</h1>
+                    <div class="social-icons mb-4">
+                        <a href="#" class="icon"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="mb-2">or use your email password</p>
+                    <input type="email" class="form-control mb-3" placeholder="Email">
+                    <input type="password" class="form-control mb-3" placeholder="Password">
+                    <a href="#" class="mb-3">Forget Your Password?</a>
+                    <button class="btn btn-light text-primary">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>

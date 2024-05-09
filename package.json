@@ -2,7 +2,10 @@
   "name": "css-frameworks-ca",
   "version": "0.0.1",
   "description": "A starting point for the CSS Frameworks CA project",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/scss:dist/css",
     "watch": "sass src/scss:dist/css --watch",
     "start": "live-server",
@@ -13,7 +16,6 @@
     "url": "git+https://github.com/NoroffFEU/css-frameworks-ca.git"
   },
   "keywords": [
-    "CSS",
     "CSS",
     "Frameworks",
     "Bootstrap",
@@ -32,6 +34,7 @@
     "sass": "^1.75.0"
   },
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "node-fetch": "^3.3.2"
   }
 }
