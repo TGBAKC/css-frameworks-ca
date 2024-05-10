@@ -1,4 +1,4 @@
-
+import fetch from "node-fetch";
 
 export const API_KEY = "87761a6a-60ce-40bf-b9ea-86ea11d25a56";
 export const API_BASE = "https://v2.api.noroff.dev";
@@ -111,6 +111,3 @@ const saveSessionInfo = (token, profile) => {
   localStorage.setItem("token", token);
   localStorage.setItem("profile", profile);
 };
-
-
-
