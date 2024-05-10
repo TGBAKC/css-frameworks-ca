@@ -1,7 +1,7 @@
-import fetch from "node-fetch";
+import fetch from "/node-fetch";
 
 export const API_KEY = "87761a6a-60ce-40bf-b9ea-86ea11d25a56";
-export const API_BASE = "https://v2.api.noroff.dev";
+export const API_BASE_URL = 'https://api.noroff.dev';
 export const API_AUTH = "/auth";
 export const API_REGISTER = "/register";
 export const API_LOGIN = "/login";
@@ -16,7 +16,7 @@ async function register(name, email, password) {
       alert("Please fill in all fields.");
       return;
     }
-    const url = API_BASE + API_AUTH + API_REGISTER;
+    const url = API_BASE_URL + API_AUTH + API_REGISTER; // API_BASE_URL'yi kullan
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ async function login(email, password) {
       alert("Please fill in all fields.");
       return;
     }
-    const url = API_BASE + API_AUTH + API_LOGIN;
+    const url = API_BASE_URL + API_AUTH + API_LOGIN; // API_BASE_URL'yi kullan
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ async function login(email, password) {
 
 async function getApiKey(token) {
   try {
-    const url = API_BASE + API_AUTH + API_KEY_URL;
+    const url = API_BASE_URL + API_AUTH + API_KEY_URL; // API_BASE_URL'yi kullan
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ async function getApiKey(token) {
 
 async function getPosts(token, api_key) {
   try {
-    const url = API_BASE + API_POSTS;
+    const url = API_BASE_URL + API_POSTS; // API_BASE_URL'yi kullan
     const response = await fetch(url, {
       headers: {
         Authorization: `Bearer ${token}`,
