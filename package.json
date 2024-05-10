@@ -1,40 +1,15 @@
 {
-  "name": "css-frameworks-ca",
-  "version": "0.0.1",
-  "description": "A starting point for the CSS Frameworks CA project",
+  "name": "tugba-demo",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass src/scss:dist/css",
-    "watch": "sass src/scss:dist/css --watch",
-    "start": "live-server",
-    "dev": "npm-run-all --parallel watch start"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NoroffFEU/css-frameworks-ca.git"
-  },
-  "keywords": [
-    "CSS",
-    "Frameworks",
-    "Bootstrap",
-    "SCSS",
-    "SASS"
-  ],
-  "author": "Oliver Dipple <oliver.dipple@noroff.no>",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NoroffFEU/css-frameworks-ca/issues"
-  },
-  "homepage": "https://github.com/NoroffFEU/css-frameworks-ca#readme",
-  "devDependencies": {
-    "live-server": "^1.2.2",
-    "npm-run-all": "^4.1.5",
-    "sass": "^1.75.0"
-  },
   "dependencies": {
-    "bootstrap": "^5.3.3",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.0.0"
   }
 }
