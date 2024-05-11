@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
-import { getPosts } from "./getPosts";
+
+import { getPosts } from "./getPosts.js";
 export async function getApiKey(token) {
   if (!token) {
     throw new Error("Please fill in all fields.");

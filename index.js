@@ -109,5 +109,5 @@ login(email, password);
 
 const saveSessionInfo = (token, profile) => {
   localStorage.setItem("token", token);
-  localStorage.setItem("profile", profile);
+  localStorage.setItem("profile", JSON.stringify(profile));
 };

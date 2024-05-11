@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
-import { login } from "./login";
+
+import { login } from "./login.js";
 export async function register(name, email, password) {
   if (!name || !email || !password) {
     throw new Error("Please fill in all fields.");

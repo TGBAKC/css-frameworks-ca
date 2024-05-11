@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
-import { getApiKey } from "./getApiKey";
+
+import { getApiKey } from "./getApiKey.js";
 export async function login(email, password) {
   if (!email || !password) {
     throw new Error("Please fill in all fields.");
