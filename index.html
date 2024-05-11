@@ -12,30 +12,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
-  <header class="container-fluid pt-5">
-    <figure class="logo text-uppercase font-oswald text-center">
-      <h1 class="fw-bold">Login</h1>
-    </figure>
-  </header>
+
   <main class="px-3 flex-grow-1 d-flex justify-content-center align-items-center">
     <div class="form-container container rounded p-3 p-md-5 element-bg d-md-flex flex-md-column align-items-md-center">
       <p class="text-center font-oswald">Sign in to get started</p>
       <div class="form-wrap">
-        <form id="loginForm" action="/profile/">
+        <!-- Login Form -->
+        <form id="loginForm" action="/profile/" class="needs-validation" novalidate>
 
           <div class="mb-3">
-            <label for="email" class="form-label font-oswald">E-mail address:</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label for="loginEmail" class="form-label font-oswald">E-mail address:</label>
+            <input type="email" class="form-control" id="loginEmail" aria-describedby="loginEmailHelp" required>
+            <div id="loginEmailHelp" class="form-text">We'll never share your email with anyone else.</div>
             <div class="invalid-feedback">
-              Must be a working email!
+              Please enter a valid email.
             </div>
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label font-oswald">Password:</label>
-            <input type="password" class="form-control" id="password" required minlength="8">
+            <label for="loginPassword" class="form-label font-oswald">Password:</label>
+            <input type="password" class="form-control" id="loginPassword" required minlength="8">
             <div class="invalid-feedback">
-              Password must be at least 8 characters!
+              Password must be at least 8 characters.
             </div>
           </div>
           <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center flex-column align-items-center">
@@ -43,31 +40,56 @@
             <button class="btn btn-secondary text-uppercase btn-nav w-100 mt-2" type="button" onclick="showRegisterForm()">Register</button>
           </div>
         </form>
-        <form id="registerForm" class="d-none">
+
+        <!-- Registration Form (Initially Hidden) -->
+        <form id="registerForm" class="d-none needs-validation" novalidate>
           <div class="mb-3">
             <label for="registerName" class="form-label font-oswald">Name:</label>
             <input type="text" class="form-control" id="registerName" required>
+            <div class="invalid-feedback">
+              Please enter your name.
+            </div>
           </div>
           <div class="mb-3">
             <label for="registerEmail" class="form-label font-oswald">E-mail address:</label>
             <input type="email" class="form-control" id="registerEmail" required>
+            <div class="invalid-feedback">
+              Please enter a valid email.
+            </div>
           </div>
           <div class="mb-3">
             <label for="registerPassword" class="form-label font-oswald">Password:</label>
             <input type="password" class="form-control" id="registerPassword" required minlength="8">
+            <div class="invalid-feedback">
+              Password must be at least 8 characters.
+            </div>
           </div>
           <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center flex-column align-items-center">
-            <button class="btn btn-secondary text-uppercase btn-nav w-100 mt-2" type="button">Register</button>
-
-            <button class="btn btn-secondary text-uppercase btn-nav w-100 mt-2" type="button" >Cancel</button>
-
+            <button class="btn btn-secondary text-uppercase btn-nav w-100 mt-2" type="submit">Register</button>
+            <button class="btn btn-secondary text-uppercase btn-nav w-100 mt-2" type="button" onclick="hideRegisterForm()">Cancel</button>
           </div>
         </form>
       </div>
     </div>
   </main>
+
   <footer class="element-bg container-fluid d-flex justify-content-center py-2">
     <span class="font-oswald">&copy; Css-frameworks</span>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Function to show registration form and hide login form
+    function showRegisterForm() {
+      document.getElementById('loginForm').classList.add('d-none');
+      document.getElementById('registerForm').classList.remove('d-none');
+    }
+
+    // Function to show login form and hide registration form
+    function hideRegisterForm() {
+      document.getElementById('loginForm').classList.remove('d-none');
+      document.getElementById('registerForm').classList.add('d-none');
+    }
+  </script>
 </body>
 </html>

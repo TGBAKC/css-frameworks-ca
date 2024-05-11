@@ -1,7 +1,7 @@
-import fetch from "/node-fetch";
+
 
 export const API_KEY = "87761a6a-60ce-40bf-b9ea-86ea11d25a56";
-export const API_BASE_URL = 'https://api.noroff.dev';
+export const API_BASE_URL ="https://v2.api.noroff.dev";
 export const API_AUTH = "/auth";
 export const API_REGISTER = "/register";
 export const API_LOGIN = "/login";
