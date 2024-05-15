@@ -15,7 +15,7 @@ async function register(name, email, password) {
       alert("Please fill in all fields.");
       return;
     }
-    const url = API_BASE_URL + API_AUTH + API_REGISTER; // API_BASE_URL'yi kullan
+    const url = API_BASE_URL + API_AUTH + API_REGISTER; 
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
