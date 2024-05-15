@@ -1,97 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="this is my CSS Frameworks CA, a piece of student work.">
-  <title>Loginpage</title>
-  <link rel="stylesheet" href="./dist/css/index.css">
-  <link rel="icon" type="image/x-icon" href="/path/to/favicon.ico">
-  <script type="module" src="index.js"></script>
-  <script type="module" src="js-files/login.js"></script>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</head>
-<body class="d-flex flex-column min-vh-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="this is my CSS Frameworks CA, a piece of student work."
+    />
+    <title>Loginpage</title>
+    <link rel="stylesheet" href="./dist/css/index.css" />
+    <link rel="icon" type="image/x-icon" href="/path/to/favicon.ico" />
+    <script type="module" src="./js-pages/login/index.js"></script>
 
-  <main class="px-3 flex-grow-1 d-flex justify-content-center align-items-center">
-    <div class="form-container container rounded p-3 p-md-5 element-bg d-md-flex flex-md-column align-items-md-center">
-      <p class="text-center font-oswald">Sign in to get started</p>
-      <div class="form-wrap">
-        <!-- Login Form -->
-        <form id="loginForm" action="/profile/" class="needs-validation" novalidate>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <main
+      class="px-3 flex-grow-1 d-flex justify-content-center align-items-center"
+    >
+      <div
+        class="form-container container rounded p-3 p-md-5 element-bg d-md-flex flex-md-column align-items-md-center"
+      >
+        <p class="text-center font-oswald">Sign in to get started</p>
+        <div class="form-wrap">
+          <!-- Login Form -->
+          <form id="loginForm" name="login" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label font-oswald"
+                >E-mail address:</label
+              >
+              <input
+                id="loginEmail"
+                type="email"
+                class="form-control"
+                name="email"
+                aria-describedby="loginEmailHelp"
+                required
+              />
+              <div id="loginEmailHelp" class="form-text">
+                We'll never share your email with anyone else.
+              </div>
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label font-oswald"
+                >Password:</label
+              >
+              <input
+                id="loginPassword"
+                type="password"
+                class="form-control"
+                name="password"
+                required
+                minlength="8"
+              />
+              <div class="invalid-feedback">
+                Password must be at least 8 characters.
+              </div>
+            </div>
+            <div
+              class="mb-3 d-flex flex-wrap gap-2 justify-content-center flex-column align-items-center"
+            >
+              <button
+                id="loginButton"
+                class="btn btn-primary text-uppercase btn-nav w-100"
+                type="submit"
+                data-auth="login"
+              >
+                Log-in
+              </button>
 
-          <div class="mb-3">
-            <label for="loginEmail" class="form-label font-oswald">E-mail address:</label>
-            <input type="email" class="form-control" id="loginEmail" aria-describedby="loginEmailHelp" required>
-            <div id="loginEmailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            <div class="invalid-feedback">
-              Please enter a valid email.
+              <button
+                class="btn btn-secondary text-uppercase btn-nav w-100 mt-2"
+                type="button"
+                onclick="showRegisterForm()"
+              >
+                Register
+              </button>
             </div>
-          </div>
-          <div class="mb-3">
-            <label for="loginPassword" class="form-label font-oswald">Password:</label>
-            <input type="password" class="form-control" id="loginPassword" required minlength="8">
-            <div class="invalid-feedback">
-              Password must be at least 8 characters.
-            </div>
-          </div>
-          <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center flex-column align-items-center">
-            <button id="loginButton" class="btn btn-primary text-uppercase btn-nav w-100" type="submit">Log-in</button>
+          </form>
 
-            <button class="btn btn-secondary text-uppercase btn-nav w-100 mt-2" type="button" onclick="showRegisterForm()">Register</button>
-          </div>
-        </form>
-
-        <!-- Registration Form (Initially Hidden) -->
-        <form id="registerForm" class="d-none needs-validation" novalidate>
-          <div class="mb-3">
-            <label for="registerName" class="form-label font-oswald">Name:</label>
-            <input type="text" class="form-control" id="registerName" required>
-            <div class="invalid-feedback">
-              Please enter your name.
+          <!-- Registration Form (Initially Hidden) -->
+          <form
+            id="registerForm"
+            name="register"
+            class="d-none needs-validation"
+            novalidate
+          >
+            <div class="mb-3">
+              <label for="registerName" class="form-label font-oswald"
+                >Name:</label
+              >
+              <input
+                id="registerName"
+                type="text"
+                class="form-control"
+                name="name"
+                required
+              />
+              <div class="invalid-feedback">Please enter your name.</div>
             </div>
-          </div>
-          <div class="mb-3">
-            <label for="registerEmail" class="form-label font-oswald">E-mail address:</label>
-            <input type="email" class="form-control" id="registerEmail" required>
-            <div class="invalid-feedback">
-              Please enter a valid email.
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label font-oswald"
+                >E-mail address:</label
+              >
+              <input
+                id="registerEmail"
+                type="email"
+                class="form-control"
+                name="email"
+                required
+              />
+              <div class="invalid-feedback">Please enter a valid email.</div>
             </div>
-          </div>
-          <div class="mb-3">
-            <label for="registerPassword" class="form-label font-oswald">Password:</label>
-            <input type="password" class="form-control" id="registerPassword" required minlength="8">
-            <div class="invalid-feedback">
-              Password must be at least 8 characters.
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label font-oswald"
+                >Password:</label
+              >
+              <input
+                id="registerPassword"
+                type="password"
+                class="form-control"
+                name="password"
+                required
+                minlength="8"
+              />
+              <div class="invalid-feedback">
+                Password must be at least 8 characters.
+              </div>
             </div>
-          </div>
-          <div class="mb-3 d-flex flex-wrap gap-2 justify-content-center flex-column align-items-center">
-            <button class="btn btn-secondary text-uppercase btn-nav w-100 mt-2" type="submit">Register</button>
-            <button class="btn btn-secondary text-uppercase btn-nav w-100 mt-2" type="button" onclick="hideRegisterForm()">Cancel</button>
-          </div>
-        </form>
+            <div
+              class="mb-3 d-flex flex-wrap gap-2 justify-content-center flex-column align-items-center"
+            >
+              <button
+                id="registerButton"
+                class="btn btn-secondary text-uppercase btn-nav w-100 mt-2"
+                type="submit"
+                data-auth="register"
+              >
+                Register
+              </button>
+              <button
+                class="btn btn-secondary text-uppercase btn-nav w-100 mt-2"
+                type="button"
+                onclick="hideRegisterForm()"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="element-bg container-fluid d-flex justify-content-center py-2">
-    <span class="font-oswald">&copy; Css-frameworks</span>
-  </footer>
+    <footer
+      class="element-bg container-fluid d-flex justify-content-center py-2"
+    >
+      <span class="font-oswald">&copy; Css-frameworks</span>
+    </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Function to show registration form and hide login form
-    function showRegisterForm() {
-      document.getElementById('loginForm').classList.add('d-none');
-      document.getElementById('registerForm').classList.remove('d-none');
-    }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Function to show registration form and hide login form
+      function showRegisterForm() {
+        document.getElementById("loginForm").classList.add("d-none");
+        document.getElementById("registerForm").classList.remove("d-none");
+      }
 
-    // Function to show login form and hide registration form
-    function hideRegisterForm() {
-      document.getElementById('loginForm').classList.remove('d-none');
-      document.getElementById('registerForm').classList.add('d-none');
-    }
-  </script>
-</body>
+      // Function to show login form and hide registration form
+      function hideRegisterForm() {
+        document.getElementById("loginForm").classList.remove("d-none");
+        document.getElementById("registerForm").classList.add("d-none");
+      }
+    </script>
+  </body>
 </html>
