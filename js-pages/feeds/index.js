@@ -37,14 +37,15 @@ async function getPosts(token, key) {
       postItems += `
         <div class="card mb-3 m-5">
                                       <div class="card-body">
-                                        <h5 class="card-title"> ${post.title}</h5>
+                                        <a href ="post/index.html"> <h5 class="card-title"> ${post.title}</h5></a>
+                                               
                                         <p class="card-text">Discover how small changes in your daily life can lead to significant environmental benefits. From reducing waste to conserving energy, learn how to make your lifestyle more sustainable. Join the movement towards a greener planet. 🌍♻️</p>
                                       </div>
                                       <div class="card-footer bg-white px-0 ">
                                         <div class="row">
                           
                                             <div class=" col-md-auto ">
-                                                <a href="#" class="btn btn-outlined btn-black text-muted bg-transparent" data-wow-delay="0.7s"><img src="https://img.icons8.com/ios/50/000000/settings.png" width="19" height="19" alt="icons"> <small>SETTINGS</small></a>
+                                                <a href="#" class="btn btn-outlined btn-black text-muted bg-transparent" data-wow-delay="0.7s"><img src="https://img.icons8.com/ios/50/000000/settings.png" width="19" height="19" alt="icons"> <small>DELETE</small></a>
                           
                                                 <i class="mdi mdi-settings-outline"></i>
                           
@@ -53,7 +54,7 @@ async function getPosts(token, key) {
                           
                                                 <a href="#" class="btn-outlined btn-black text-muted">
                                                     <img src="https://img.icons8.com/metro/26/000000/link.png" width="17" height="17" class="plus-icon" alt="icons">
-                                                    <small>PROGRAM LINK</small>
+                                                    <small>UPDATE</small>
                                                   </a>
                                                   
                           

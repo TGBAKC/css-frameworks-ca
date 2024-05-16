@@ -1,7 +1,9 @@
-const { name } = JSON.parse(localStorage.getItem("profile"));
+const { name, avatar } = JSON.parse(localStorage.getItem("profile"));
 
-const elements = document.getElementsByName("profile-name");
-
-elements.forEach((element) => {
+const profileNameElements = document.getElementsByName("profile-name");
+profileNameElements.forEach((element) => {
   element.innerHTML = name;
 });
+
+const profileImageElement = document.getElementById("profile-image");
+profileImageElement.src = avatar.url;
