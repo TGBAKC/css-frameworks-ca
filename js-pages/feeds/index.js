@@ -231,7 +231,15 @@ const getPosts = async (token, key) => {
     console.log("error", error);
   }
 };
-
+// Sort dropdown event listener
+const sortDropdown = document.getElementById("dropdownMenuButton");
+const sortDropdownItems = document.querySelectorAll(".dropdown-item");
+sortDropdownItems.forEach((item) => {
+  item.addEventListener("click", async function () {
+    const sortCriteria = this.textContent.toLowerCase().includes("old") ? "old" : "new";
+    await getPosts(sortCriteria);
+  });
+});
 const action = "?_author=true&_reactions=true&_comments=true";
 
 async function search(searchTerm, limit = 100, page = 1) {
@@ -352,3 +360,7 @@ searchForm.addEventListener("submit", function (event) {
 const token = localStorage.getItem("token");
 const key = localStorage.getItem("key");
 await getPosts(token, key);
+
+
+
+
