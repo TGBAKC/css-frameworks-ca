@@ -66,3 +66,8 @@ async function displayPosts() {
 
 // Call the function to fetch and display posts
 displayPosts();
+
+
+
+
+

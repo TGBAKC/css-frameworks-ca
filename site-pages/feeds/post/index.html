@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post</title>
     <link rel="stylesheet" href="./../../../dist/css/index.css">
-    <script type="module" src="./../../../js-pages/post/index.js"></script>
+    <script type="module" src="./../../../js-pages/post/index.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div id="posts">
-            <!-- Posts will be dynamically inserted here -->
+    <h1 class="visually-hidden">Post</h1>
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center post-container" style="min-height: 100vh;">
+        <div id="spinner" class="spinner-border text-secondary" role="status" aria-hidden="true">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div id="post-content" class="d-none">
+            <!-- Dinamik olarak yüklenecek içerik buraya gelecek -->
         </div>
     </div>
 </body>
