@@ -47,26 +47,35 @@
               >
             </li>
           </ul>
-          <div class="dropdown">
-            <button
-              class="btn btn-primary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Sort
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" name="sortNew" href="#">New post</a>
-              <a class="dropdown-item" name="sortOld" href="#">Oldest post</a>
-            </div>
-          </div>
         </div>
       </div>
     </nav>
-    <div name="post"></div>
+    <div class="row px-3 mt-3">
+      <div class="container bg-w-white rounded border p-3 mb-4">
+        <div class="row">
+          <div class="col-auto">
+            <img name="profile-avatar" height="50" class="rounded-circle" />
+          </div>
+          <div class="col">
+            <p
+              name="profile-name"
+              class="card-title lead fw-bold text-decoration-none text-w-green"
+            ></p>
+            <p class="card-subtitle text-muted fw-light pt-0 mt-0">Now</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand">
+      <div
+        class="container-fluid d-flex justify-content-between border-bottom border-w-green mx-0 px-0"
+      >
+        <form class="justify-content-end" id="searchForm">
+          <div class="input-group d-flex"></div>
+        </form>
+      </div>
+    </nav>
+    <div name="posts"></div>
     <footer>
       <div
         class="text-center p-4"

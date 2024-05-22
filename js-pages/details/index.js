@@ -20,54 +20,6 @@ elements2.forEach((element) => {
   element.src = avatar.url;
 });
 
-document.getElementsByName("create-post")[0].addEventListener("click", (e) => {
-  e.preventDefault();
-  createPost();
-});
-
-document.getElementsByName("sortNew")[0].addEventListener("click", (e) => {
-  e.preventDefault();
-  const token = localStorage.getItem("token");
-  const key = localStorage.getItem("key");
-  getPosts(token, key, "newest");
-});
-
-document.getElementsByName("sortOld")[0].addEventListener("click", (e) => {
-  e.preventDefault();
-  const token = localStorage.getItem("token");
-  const key = localStorage.getItem("key");
-  getPosts(token, key, "oldest");
-});
-
-const createPost = async () => {
-  const token = localStorage.getItem("token");
-  const key = localStorage.getItem("key");
-  const title = document.getElementsByName("post-title")[0].value;
-  const body = document.getElementsByName("post-text")[0].value;
-  const url = `${API_BASE}${API_SOCIAL_BASE}/posts`;
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "X-Noroff-API-Key": key,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title,
-        body,
-      }),
-    });
-    if (response.ok) {
-      await getPosts(token, key);
-    } else {
-      console.log("error", response.status);
-    }
-  } catch (error) {
-    console.log("error", error);
-  }
-};
-
 const deletePost = async (id) => {
   const token = localStorage.getItem("token");
   const key = localStorage.getItem("key");
@@ -117,26 +69,33 @@ const updatePostItem = async (postId, updatedTitle) => {
   }
 };
 
+/**
+ * Represents getPosts.
+ * @param {string} token - local token.
+ * @param {string} key - local key.
+ * @param {string} sort - type of sort.
+ */
 const getPosts = async (token, key, sort = "newest") => {
   try {
-    const url = API_BASE + API_POSTS + "?_author=true";
-    console.log("url", url);
+    const queryString = window.location.search;
+    console.log("queryString", queryString);
+    const params = new URLSearchParams(queryString);
+    const id = params.get("id");
+    const url =
+      API_BASE +
+      API_POSTS +
+      "/" +
+      id +
+      "?_author=true&_reactions=true&_comments=true&limit=100&page=1";
     const response = await fetch(url, {
       headers: {
         Authorization: `Bearer ${token}`,
         "X-Noroff-API-Key": key,
       },
     });
-    const data = (await response.json()).data;
-    console.log("data", data);
-    let postItems = data
-      .sort((a, b) => {
-        if (sort == "newest") {
-          return b.id - a.id;
-        } else return a.id - b.id;
-      })
-      .map(
-        (post) => `
+    const post = (await response.json()).data;
+    console.log("post", post);
+    let postItems = `
       <div class="card mb-3 m-5" id="${post.id}">
         <div class="card-body">
         <img
@@ -162,47 +121,13 @@ const getPosts = async (token, key, sort = "newest") => {
         <div class="card-footer bg-white px-0">
           <div class="row">
             <div class="col-md-auto" id="${post.id}">
-              <a
-                href="#"
-                class="btn btn-outlined btn-black text-muted bg-transparent"
-                data-wow-delay="0.7s"
-                name="delete-btn"
-              >
-                <img
-                  src="https://img.icons8.com/ios/50/000000/settings.png"
-                  width="19"
-                  height="19"
-                  alt="icons"
-                >
-                <small>DELETE</small>
-              </a>
-              <a href="#" class="btn-outlined btn-black text-muted" name="update-btn">
-                <img
-                  src="https://img.icons8.com/metro/26/000000/link.png"
-                  width="17"
-                  height="17"
-                  class="plus-icon"
-                  alt="icons"
-                >
-                <small>UPDATE</small>
-              </a>
-              <a class="btn-outlined btn-black text-muted" name="details-btn">
-                <img
-                  src="https://img.icons8.com/metro/26/000000/link.png"
-                  width="17"
-                  height="17"
-                  class="plus-icon"
-                  alt="icons"
-                >
-                <small>Details</small>
-              </a>
+              
+              
             </div>
           </div>
         </div>
       </div>
-    `
-      )
-      .join("");
+    `;
 
     document.getElementsByName("posts")[0].innerHTML = postItems;
 
@@ -210,8 +135,7 @@ const getPosts = async (token, key, sort = "newest") => {
     detailsLink.forEach((link) => {
       link.addEventListener("click", async function (event) {
         event.preventDefault();
-        window.location.href =
-          "/site-pages/details/index.html?id=" + this.parentElement.id;
+        window.location.href = "/site-pages/details/index.html";
       });
     });
 
