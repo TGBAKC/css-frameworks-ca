@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profil Page</title>
+    <title>Profile Page</title>
     <meta property="og:title" content="profile-page" />
     <meta
       property="og:description"
@@ -13,7 +12,6 @@
     <meta name="author" content="Tugba AKCA" />
     <link rel="stylesheet" href="./../../dist/css/index.css" />
     <script type="module" src="./../../js-pages/profile/index.js"></script>
-    <script type="module" src="./../../js-pages/feeds/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
@@ -46,6 +44,9 @@
                 >Feeds</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" name="logout">Logout</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -67,51 +68,18 @@
                 />
 
                 <div class="d-flex flex-column bd-highlight"></div>
-                <button
-                  type="button"
-                  class="btn btn-primary mt-4"
-                  data-mdb-ripple-color="dark"
-                  style="z-index: 1"
-                >
-                  Follow
-                </button>
               </div>
               <div class="ms-3 ml-2" style="margin-top: 130px">
                 <h5 name="profile-name"></h5>
-                <p>Stavanger</p>
-              </div>
-            </div>
-            <div class="p-4 text-black" style="background-color: #f8f9fa">
-              <div
-                class="row justify-content-md-center justify-content-sm-end text-center py-1"
-              >
-                <div class="col-md-auto col-sm-auto">
-                  <p class="mb-1 h5">253</p>
-                  <p class="small text-muted mb-0">Photos</p>
-                </div>
-                <div class="col-md-auto col-sm-auto px-3">
-                  <p class="mb-1 h5">1026</p>
-                  <p class="small text-muted mb-0">Followers</p>
-                </div>
-                <div class="col-md-auto col-sm-auto">
-                  <p class="mb-1 h5">478</p>
-                  <p class="small text-muted mb-0">Following</p>
-                </div>
-              </div>
-            </div>
-            <div class="card-body p-4 text-black">
-              <div class="mb-5">
-                <p class="lead fw-normal mb-1">About</p>
-                <div class="p-4" style="background-color: #f8f9fa">
-                  <p class="font-italic mb-1">Web Developer</p>
-                  <p class="font-italic mb-1">Lives in Norway</p>
-                  <p class="font-italic mb-0">Happy life</p>
-                </div>
+                <p name="profile-email"></p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+    <section>
+      <div name="user-posts"></div>
     </section>
     <footer>
       <div

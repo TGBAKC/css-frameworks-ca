@@ -36,10 +36,10 @@ const deletePost = async (id) => {
     if (response.ok) {
       await getPosts(token, key);
     } else {
-      console.log("error", response.status);
+      throw new Error(response.status);
     }
   } catch (error) {
-    console.log("error", error);
+    alert(error.message);
   }
 };
 
@@ -62,10 +62,10 @@ const updatePostItem = async (postId, updatedTitle) => {
     if (response.ok) {
       await getPosts(token, key);
     } else {
-      console.log("error", response.status);
+      throw new Error(response.status);
     }
   } catch (error) {
-    console.log("error", error);
+    alert(error.message);
   }
 };
 
@@ -78,7 +78,6 @@ const updatePostItem = async (postId, updatedTitle) => {
 const getPosts = async (token, key, sort = "newest") => {
   try {
     const queryString = window.location.search;
-    console.log("queryString", queryString);
     const params = new URLSearchParams(queryString);
     const id = params.get("id");
     const url =
@@ -94,7 +93,6 @@ const getPosts = async (token, key, sort = "newest") => {
       },
     });
     const post = (await response.json()).data;
-    console.log("post", post);
     let postItems = `
       <div class="card mb-3 m-5" id="${post.id}">
         <div class="card-body">
@@ -145,7 +143,6 @@ const getPosts = async (token, key, sort = "newest") => {
         event.preventDefault();
 
         const postId = this.parentElement.id;
-        console.log("postId", postId);
         await deletePost(postId);
       });
     });
@@ -156,21 +153,19 @@ const getPosts = async (token, key, sort = "newest") => {
         event.preventDefault();
 
         const postId = this.parentElement.id;
-        console.log("postId", postId);
         var titleElement = document.querySelector('h5[name="title"]');
 
         if (titleElement) {
           var titleText = titleElement.textContent;
-          console.log("Title text:", titleText);
 
           await updatePostItem(postId, titleText);
         } else {
-          console.error('H5 element with name "title" not found.');
+          throw new Error("H5 element with name 'title' not found.");
         }
       });
     });
   } catch (error) {
-    console.log("error", error);
+    alert(error.message);
   }
 };
 
@@ -186,7 +181,6 @@ async function search(searchTerm, limit = 100, page = 1) {
       },
     });
     const data = (await response.json()).data;
-    console.log("data", data);
     let postItems = data
       .map(
         (post) => `
@@ -243,7 +237,6 @@ async function search(searchTerm, limit = 100, page = 1) {
       .join("");
 
     document.getElementsByName("posts")[0].innerHTML = postItems;
-    console.log("Fetched data:", data);
   } catch (error) {
     throw new Error("Error getting posts: " + error.message);
   }
@@ -258,7 +251,6 @@ searchForm.addEventListener("submit", function (event) {
 
   if (searchInput) {
     var searchValue = searchInput.value;
-    console.log("Search value:", searchValue);
     search(searchValue);
   } else {
     console.error('Input element with name "search" not found.');
@@ -268,3 +260,13 @@ searchForm.addEventListener("submit", function (event) {
 const token = localStorage.getItem("token");
 const key = localStorage.getItem("key");
 await getPosts(token, key);
+
+const logout = document.querySelectorAll('a[name="logout"]');
+logout.forEach((link) => {
+  link.addEventListener("click", async function (event) {
+    event.preventDefault();
+    window.location.href = "/";
+    localStorage.removeItem("token");
+    localStorage.removeItem("key");
+  });
+});

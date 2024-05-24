@@ -65,24 +65,15 @@ document.forms.register.addEventListener("submit", onAuth);
 async function onAuth(event) {
   event.preventDefault();
 
-  console.log("log", event.submitter.dataset.auth);
-
   if (event.submitter.dataset.auth === "login") {
     const email = event.target.email.value;
     const password = event.target.password.value;
-
-    console.log("email", email);
-    console.log("password", password);
 
     await login(email, password);
   } else {
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-
-    console.log("name", name);
-    console.log("email", email);
-    console.log("password", password);
 
     await register(name, email, password);
     await login(email, password);
@@ -98,13 +89,10 @@ async function onAuth(event) {
  * @throws Will throw an error if the email or password is not provided or if the login request fails.
  */
 async function login(email, password) {
-  console.log("email", email);
-  console.log("password", password);
-
-  if (!email || !password) {
-    throw new Error("Please fill in all fields.");
-  }
   try {
+    if (!email || !password) {
+      throw new Error("Please fill in all fields.");
+    }
     const url = API_BASE + API_AUTH + API_LOGIN;
     const response = await fetch(url, {
       headers: {
@@ -121,7 +109,7 @@ async function login(email, password) {
     }
     throw new Error("Could not login the account");
   } catch (error) {
-    console.log("error", error);
+    alert(error.message);
   }
 }
 
@@ -133,10 +121,10 @@ async function login(email, password) {
  * @throws Will throw an error if the token is not provided or if the request fails.
  */
 async function getApiKey(token) {
-  if (!token) {
-    throw new Error("Please fill in all fields.");
-  }
   try {
+    if (!token) {
+      throw new Error("There is no token.");
+    }
     const url = API_BASE + API_AUTH + API_KEY_URL;
     const response = await fetch(url, {
       headers: {
@@ -151,7 +139,7 @@ async function getApiKey(token) {
     localStorage.setItem("token", token);
     window.location.href = "/site-pages/profile";
   } catch (error) {
-    console.log("error", error);
+    alert(error.message);
   }
 }
 
@@ -165,10 +153,10 @@ async function getApiKey(token) {
  * @throws Will throw an error if the name, email, or password is not provided or if the registration request fails.
  */
 async function register(name, email, password) {
-  if (!name || !email || !password) {
-    throw new Error("Please fill in all fields.");
-  }
   try {
+    if (!name || !email || !password) {
+      throw new Error("Please fill in all fields.");
+    }
     const url = API_BASE + API_AUTH + API_REGISTER;
     const response = await fetch(url, {
       headers: {
@@ -183,6 +171,16 @@ async function register(name, email, password) {
     }
     throw new Error("Could not register the account");
   } catch (error) {
-    console.log("error", error);
+    alert(error.message);
   }
 }
+
+const logout = document.querySelectorAll('a[name="logout"]');
+logout.forEach((link) => {
+  link.addEventListener("click", async function (event) {
+    event.preventDefault();
+    window.location.href = "/";
+    localStorage.removeItem("token");
+    localStorage.removeItem("key");
+  });
+});
