@@ -1,10 +1,36 @@
-// Define API constants
+/**
+ * API key for authorization.
+ * @constant {string}
+ */
 export const API_KEY = "87761a6a-60ce-40bf-b9ea-86ea11d25a56";
+
+/**
+ * Base URL for the API.
+ * @constant {string}
+ */
 export const API_BASE = "https://v2.api.noroff.dev";
+
+/**
+ * Endpoint for posts.
+ * @constant {string}
+ */
 export const API_POSTS = "/social/posts";
+
+/**
+ * Query parameters for fetching posts.
+ * @constant {string}
+ */
 const action = "?_author=true&_reactions=true&_comments=true";
 
-// Function to fetch posts from following
+/**
+ * Fetch posts from the following list.
+ * @async
+ * @function getPostsFromFollowing
+ * @param {number} [limit=100] - The number of posts to fetch.
+ * @param {number} [page=1] - The page number to fetch.
+ * @returns {Promise<Object[]>} - A promise that resolves to an array of posts.
+ * @throws {Error} - Throws an error if the request fails or if there is no authorization token.
+ */
 export async function getPostsFromFollowing(limit = 100, page = 1) {
     try {
         // Get the token from localStorage
@@ -40,7 +66,13 @@ export async function getPostsFromFollowing(limit = 100, page = 1) {
     }
 }
 
-// Function to handle displaying posts
+/**
+ * Fetches posts from the following list and displays them on the page.
+ * @async
+ * @function displayPosts
+ * @returns {Promise<void>}
+ * @throws {Error} - Throws an error if there is an issue fetching or displaying posts.
+ */
 async function displayPosts() {
     try {
         const data = await getPostsFromFollowing();
