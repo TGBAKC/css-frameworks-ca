@@ -10,29 +10,26 @@ export const API_SOCIAL_BASE = "/social";
 
 const { name, avatar } = JSON.parse(localStorage.getItem("profile"));
 
-const elements = document.getElementsByName("profile-name");
-elements.forEach((element) => {
-  element.innerHTML = name;
-});
+const elements = // Profil ismini ayarlama
+document.getElementById("profile-name").innerHTML = name;
 
-const elements2 = document.getElementsByName("profile-avatar");
-elements2.forEach((element) => {
-  element.src = avatar.url;
-});
+
+const element = document.getElementById("profile-avatar");
+element.src = avatar.url;
 
 document.getElementsByName("create-post")[0].addEventListener("click", (e) => {
   e.preventDefault();
   createPost();
 });
 
-document.getElementsByName("sortNew")[0].addEventListener("click", (e) => {
+document.getElementById("sortNew").addEventListener("click", (e) => {
   e.preventDefault();
   const token = localStorage.getItem("token");
   const key = localStorage.getItem("key");
   getPosts(token, key, "newest");
 });
 
-document.getElementsByName("sortOld")[0].addEventListener("click", (e) => {
+document.getElementById("sortOld").addEventListener("click", (e) => {
   e.preventDefault();
   const token = localStorage.getItem("token");
   const key = localStorage.getItem("key");
@@ -206,7 +203,7 @@ const getPosts = async (token, key, sort = "newest") => {
       )
       .join("");
 
-    document.getElementsByName("posts")[0].innerHTML = postItems;
+      document.getElementById("posts").innerHTML = postItems;
 
     const detailsLink = document.querySelectorAll('a[name="details-btn"]');
     detailsLink.forEach((link) => {
@@ -297,7 +294,7 @@ async function search(searchTerm, limit = 100, page = 1) {
                 <small>DELETE</small>
               </a>
               <i class="mdi mdi-settings-outline"></i>
-              <a href="#" class="btn-outlined btn-black text-muted" name="update-btn">
+              <a href="#" class="btn-outlined btn-black text-muted " name="update-btn">
                 <img
                   src="https://img.icons8.com/metro/26/000000/link.png"
                   width="17"
@@ -316,7 +313,7 @@ async function search(searchTerm, limit = 100, page = 1) {
       )
       .join("");
 
-    document.getElementsByName("posts")[0].innerHTML = postItems;
+      document.getElementById("posts").innerHTML = postItems;
   } catch (error) {
     throw new Error("Error getting posts: " + error.message);
   }

@@ -10,15 +10,12 @@ export const API_SOCIAL_BASE = "/social";
 
 const { name, avatar } = JSON.parse(localStorage.getItem("profile"));
 
-const elements = document.getElementsByName("profile-name");
-elements.forEach((element) => {
-  element.innerHTML = name;
-});
+const elements = // Profil ismini ayarlama
+document.getElementById("profile-name").innerHTML = name;
 
-const elements2 = document.getElementsByName("profile-avatar");
-elements2.forEach((element) => {
-  element.src = avatar.url;
-});
+
+const element = document.getElementById("profile-avatar");
+element.src = avatar.url;
 
 const deletePost = async (id) => {
   const token = localStorage.getItem("token");
@@ -127,7 +124,8 @@ const getPosts = async (token, key, sort = "newest") => {
       </div>
     `;
 
-    document.getElementsByName("posts")[0].innerHTML = postItems;
+    document.getElementById("posts").innerHTML = postItems;
+
 
     const detailsLink = document.querySelectorAll('a[name="details-btn"]');
     detailsLink.forEach((link) => {
@@ -261,12 +259,10 @@ const token = localStorage.getItem("token");
 const key = localStorage.getItem("key");
 await getPosts(token, key);
 
-const logout = document.querySelectorAll('a[name="logout"]');
-logout.forEach((link) => {
-  link.addEventListener("click", async function (event) {
-    event.preventDefault();
-    window.location.href = "/";
-    localStorage.removeItem("token");
-    localStorage.removeItem("key");
-  });
+const logoutLink = document.getElementById("logout");
+logoutLink.addEventListener("click", async function (event) {
+  event.preventDefault();
+  window.location.href = "/";
+  localStorage.removeItem("token");
+  localStorage.removeItem("key");
 });

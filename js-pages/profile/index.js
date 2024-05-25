@@ -22,7 +22,7 @@ const { name, avatar, email } = JSON.parse(localStorage.getItem("profile"));
  * @param {string} name - The name of the user.
  */
 const updateProfileNameElements = (name) => {
-  const profileNameElements = document.getElementsByName("profile-name");
+  const profileNameElements = document.querySelectorAll(".profile-name");
   profileNameElements.forEach((element) => {
     element.innerHTML = name;
   });
@@ -38,32 +38,27 @@ const updateProfileImageElement = (imageUrl) => {
   profileImageElement.src = imageUrl;
 };
 
-// Update profile name elements with the user's name
-updateProfileNameElements(name);
+/**
+ * Updates the profile email elements with the user's email.
+ * @function updateProfileEmailElements
+ * @param {string} email - The email of the user.
+ */
+const updateProfileEmailElements = (email) => {
+  const profileEmailElements = document.querySelectorAll(".profile-email");
+  profileEmailElements.forEach((element) => {
+    element.innerHTML = email;
+  });
+};
 
-// Update profile image element with the URL of the user's avatar
-updateProfileImageElement(avatar.url);
-
-const elements = document.getElementsByName("profile-name");
-elements.forEach((element) => {
-  element.innerHTML = name;
+document.addEventListener("DOMContentLoaded", function() {
+  const { name, avatar, email } = JSON.parse(localStorage.getItem("profile"));
+  updateProfileNameElements(name);
+  updateProfileImageElement(avatar.url);
+  updateProfileEmailElements(email);
 });
-
-const elements2 = document.getElementsByName("profile-avatar");
-elements2.forEach((element) => {
-  element.src = avatar.url;
-});
-
-const elements3 = document.getElementsByName("profile-email");
-elements3.forEach((element) => {
-  element.innerHTML = email;
-});
-
-
-
-const logout = document.querySelectorAll('a[name="logout"]');
-logout.forEach((link) => {
-  link.addEventListener("click", async function (event) {
+const logoutLinks = document.querySelectorAll('.logout-link');
+logoutLinks.forEach((link) => {
+  link.addEventListener("click", function (event) {
     event.preventDefault();
     window.location.href = "/";
     localStorage.removeItem("token");
