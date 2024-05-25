@@ -59,6 +59,8 @@ elements3.forEach((element) => {
   element.innerHTML = email;
 });
 
+
+
 const logout = document.querySelectorAll('a[name="logout"]');
 logout.forEach((link) => {
   link.addEventListener("click", async function (event) {

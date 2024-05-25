@@ -153,7 +153,11 @@ const getPosts = async (token, key, sort = "newest") => {
           </p>
           ${
             post.media?.url
-              ? `<p class="card-text"><img src="${post.media.url}" width="200" height="200"></p>`
+              ? `
+              <div class="d-flex justify-content-center align-items-center">
+                <img src="${post.media.url}" class="img-fluid" style="max-width: 100%; height: auto;">
+              </div>
+            ` 
               : ""
           }
         </div>
