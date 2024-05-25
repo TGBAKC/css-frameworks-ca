@@ -9,9 +9,9 @@
 Description
 This is a front-end client for a social media platform called css-framework. The website is built using the Javascript. It is a part of the Noroff course to learn about Javascript.
 
-The full assignment description can be found here.
+The full assignment description can be found [here]
 
-The task board for the project can be found here.
+The task board for the project can be found [here.]
 
 
 
