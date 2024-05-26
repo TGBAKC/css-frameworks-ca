@@ -1,27 +1,85 @@
+/**
+ * API Key for Noroff API
+ * @constant {string}
+ */
 export const API_KEY = "87761a6a-60ce-40bf-b9ea-86ea11d25a56";
+
+/**
+ * Base URL for Noroff API
+ * @constant {string}
+ */
 export const API_BASE = "https://v2.api.noroff.dev";
+
+/**
+ * Auth endpoint
+ * @constant {string}
+ */
 export const API_AUTH = "/auth";
+
+/**
+ * Register endpoint
+ * @constant {string}
+ */
 export const API_REGISTER = "/register";
+
+/**
+ * Login endpoint
+ * @constant {string}
+ */
 export const API_LOGIN = "/login";
+
+/**
+ * API Key creation URL
+ * @constant {string}
+ */
 export const API_KEY_URL = "/create-api-key";
+
+/**
+ * Posts endpoint
+ * @constant {string}
+ */
 export const API_POSTS = "/social/posts";
+
+/**
+ * Profiles endpoint
+ * @constant {string}
+ */
 export const API_PROFILES = "/social/profiles";
+
+/**
+ * Social base endpoint
+ * @constant {string}
+ */
 export const API_SOCIAL_BASE = "/social";
 
+/**
+ * User profile details from local storage
+ * @constant {Object}
+ */
 const { name, avatar } = JSON.parse(localStorage.getItem("profile"));
 
-const elements = // Profil ismini ayarlama
+/**
+ * Set profile name
+ */
 document.getElementById("profile-name").innerHTML = name;
 
-
+/**
+ * Set profile avatar
+ */
 const element = document.getElementById("profile-avatar");
 element.src = avatar.url;
 
+/**
+ * Add event listener for create post button
+ */
 document.getElementsByName("create-post")[0].addEventListener("click", (e) => {
   e.preventDefault();
   createPost();
 });
 
+/**
+ * Add event listener for sorting posts by newest
+ */
 document.getElementById("sortNew").addEventListener("click", (e) => {
   e.preventDefault();
   const token = localStorage.getItem("token");
@@ -29,6 +87,9 @@ document.getElementById("sortNew").addEventListener("click", (e) => {
   getPosts(token, key, "newest");
 });
 
+/**
+ * Add event listener for sorting posts by oldest
+ */
 document.getElementById("sortOld").addEventListener("click", (e) => {
   e.preventDefault();
   const token = localStorage.getItem("token");
@@ -36,6 +97,10 @@ document.getElementById("sortOld").addEventListener("click", (e) => {
   getPosts(token, key, "oldest");
 });
 
+/**
+ * Create a new post
+ * @async
+ */
 const createPost = async () => {
   const token = localStorage.getItem("token");
   const key = localStorage.getItem("key");
@@ -65,6 +130,11 @@ const createPost = async () => {
   }
 };
 
+/**
+ * Delete a post by ID
+ * @async
+ * @param {string} id - Post ID
+ */
 const deletePost = async (id) => {
   const token = localStorage.getItem("token");
   const key = localStorage.getItem("key");
@@ -88,6 +158,12 @@ const deletePost = async (id) => {
   }
 };
 
+/**
+ * Update a post title
+ * @async
+ * @param {string} postId - Post ID
+ * @param {string} updatedTitle - Updated title
+ */
 const updatePostItem = async (postId, updatedTitle) => {
   const token = localStorage.getItem("token");
   const key = localStorage.getItem("key");
@@ -114,6 +190,13 @@ const updatePostItem = async (postId, updatedTitle) => {
   }
 };
 
+/**
+ * Get posts
+ * @async
+ * @param {string} token - Authentication token
+ * @param {string} key - API key
+ * @param {string} [sort="newest"] - Sorting method
+ */
 const getPosts = async (token, key, sort = "newest") => {
   try {
     const url = API_BASE + API_POSTS + "?_author=true";
@@ -203,7 +286,7 @@ const getPosts = async (token, key, sort = "newest") => {
       )
       .join("");
 
-      document.getElementById("posts").innerHTML = postItems;
+    document.getElementById("posts").innerHTML = postItems;
 
     const detailsLink = document.querySelectorAll('a[name="details-btn"]');
     detailsLink.forEach((link) => {
@@ -246,8 +329,19 @@ const getPosts = async (token, key, sort = "newest") => {
   }
 };
 
+/**
+ * Action string with query parameters
+ * @constant {string}
+ */
 const action = "?_author=true&_reactions=true&_comments=true";
 
+/**
+ * Search for posts
+ * @async
+ * @param {string} searchTerm - Term to search for
+ * @param {number} [limit=100] - Number of results to return
+ * @param {number} [page=1] - Page number
+ */
 async function search(searchTerm, limit = 100, page = 1) {
   try {
     const url = `${API_BASE}${API_SOCIAL_BASE}/posts/search${action}&q=${searchTerm}&limit=${limit}&page=${page}`;
@@ -313,12 +407,15 @@ async function search(searchTerm, limit = 100, page = 1) {
       )
       .join("");
 
-      document.getElementById("posts").innerHTML = postItems;
+    document.getElementById("posts").innerHTML = postItems;
   } catch (error) {
     throw new Error("Error getting posts: " + error.message);
   }
 }
 
+/**
+ * Search form submit event listener
+ */
 var searchForm = document.getElementById("searchForm");
 
 searchForm.addEventListener("submit", function (event) {
@@ -334,11 +431,17 @@ searchForm.addEventListener("submit", function (event) {
   }
 });
 
+/**
+ * Get initial posts on page load
+ */
 const token = localStorage.getItem("token");
 const key = localStorage.getItem("key");
 await getPosts(token, key);
 
-const logout = document.querySelectorAll('a[name="logout"]');
+/**
+ * Logout functionality
+ */
+const logout = document.querySelectorAll('a#logout');
 logout.forEach((link) => {
   link.addEventListener("click", async function (event) {
     event.preventDefault();

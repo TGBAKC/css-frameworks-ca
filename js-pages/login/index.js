@@ -1,3 +1,31 @@
+// Function to show registration form and hide login form
+function showRegisterForm() {
+  document.getElementById("loginForm").classList.add("d-none");
+  document.getElementById("registerForm").classList.remove("d-none");
+}
+
+// Function to show login form and hide registration form
+function hideRegisterForm() {
+  document.getElementById("loginForm").classList.remove("d-none");
+  document.getElementById("registerForm").classList.add("d-none");
+}
+
+// Function to handle form validation
+(function () {
+  'use strict'
+  var forms = document.querySelectorAll('.needs-validation')
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
 /**
  * API key for authorization.
  * @constant {string}
@@ -175,8 +203,13 @@ async function register(name, email, password) {
   }
 }
 
-const logout = document.querySelectorAll('a[name="logout"]');
-logout.forEach((link) => {
+// Event listeners for showing and hiding registration form
+document.getElementById("showRegisterButton").addEventListener("click", showRegisterForm);
+document.getElementById("hideRegisterButton").addEventListener("click", hideRegisterForm);
+
+// Event listener for logout links
+const logoutLinks = document.querySelectorAll('a[name="logout"]');
+logoutLinks.forEach((link) => {
   link.addEventListener("click", async function (event) {
     event.preventDefault();
     window.location.href = "/";

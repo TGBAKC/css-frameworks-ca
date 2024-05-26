@@ -1,3 +1,7 @@
+/**
+ * API constants.
+ * @constant {string}
+ */
 export const API_KEY = "87761a6a-60ce-40bf-b9ea-86ea11d25a56";
 export const API_BASE = "https://v2.api.noroff.dev";
 export const API_AUTH = "/auth";
@@ -8,15 +12,22 @@ export const API_POSTS = "/social/posts";
 export const API_PROFILES = "/social/profiles";
 export const API_SOCIAL_BASE = "/social";
 
+// Get profile information from local storage
 const { name, avatar } = JSON.parse(localStorage.getItem("profile"));
 
-const elements = // Profil ismini ayarlama
+// Set profile name
 document.getElementById("profile-name").innerHTML = name;
 
-
+// Set profile avatar
 const element = document.getElementById("profile-avatar");
 element.src = avatar.url;
 
+/**
+ * Delete a post.
+ * @async
+ * @param {string} id - The ID of the post to delete.
+ * @throws Will throw an error if the deletion fails.
+ */
 const deletePost = async (id) => {
   const token = localStorage.getItem("token");
   const key = localStorage.getItem("key");
@@ -40,6 +51,13 @@ const deletePost = async (id) => {
   }
 };
 
+/**
+ * Update a post's title.
+ * @async
+ * @param {string} postId - The ID of the post to update.
+ * @param {string} updatedTitle - The new title for the post.
+ * @throws Will throw an error if the update fails.
+ */
 const updatePostItem = async (postId, updatedTitle) => {
   const token = localStorage.getItem("token");
   const key = localStorage.getItem("key");
@@ -67,10 +85,12 @@ const updatePostItem = async (postId, updatedTitle) => {
 };
 
 /**
- * Represents getPosts.
- * @param {string} token - local token.
- * @param {string} key - local key.
- * @param {string} sort - type of sort.
+ * Fetch and display posts.
+ * @async
+ * @param {string} token - The authentication token.
+ * @param {string} key - The API key.
+ * @param {string} [sort="newest"] - The sorting order of the posts.
+ * @throws Will throw an error if fetching the posts fails.
  */
 const getPosts = async (token, key, sort = "newest") => {
   try {
@@ -78,11 +98,7 @@ const getPosts = async (token, key, sort = "newest") => {
     const params = new URLSearchParams(queryString);
     const id = params.get("id");
     const url =
-      API_BASE +
-      API_POSTS +
-      "/" +
-      id +
-      "?_author=true&_reactions=true&_comments=true&limit=100&page=1";
+      `${API_BASE}${API_POSTS}/${id}?_author=true&_reactions=true&_comments=true&limit=100&page=1`;
     const response = await fetch(url, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -126,7 +142,6 @@ const getPosts = async (token, key, sort = "newest") => {
 
     document.getElementById("posts").innerHTML = postItems;
 
-
     const detailsLink = document.querySelectorAll('a[name="details-btn"]');
     detailsLink.forEach((link) => {
       link.addEventListener("click", async function (event) {
@@ -167,8 +182,14 @@ const getPosts = async (token, key, sort = "newest") => {
   }
 };
 
-const action = "?_author=true&_reactions=true&_comments=true";
-
+/**
+ * Search for posts.
+ * @async
+ * @param {string} searchTerm - The term to search for.
+ * @param {number} [limit=100] - The number of results to return.
+ * @param {number} [page=1] - The page number to return.
+ * @throws Will throw an error if the search fails.
+ */
 async function search(searchTerm, limit = 100, page = 1) {
   try {
     const url = `${API_BASE}${API_SOCIAL_BASE}/posts/search${action}&q=${searchTerm}&limit=${limit}&page=${page}`;
@@ -240,6 +261,7 @@ async function search(searchTerm, limit = 100, page = 1) {
   }
 }
 
+// Handle search form submission
 var searchForm = document.getElementById("searchForm");
 
 searchForm.addEventListener("submit", function (event) {
@@ -255,10 +277,12 @@ searchForm.addEventListener("submit", function (event) {
   }
 });
 
+// Get token and key from local storage and fetch posts
 const token = localStorage.getItem("token");
 const key = localStorage.getItem("key");
 await getPosts(token, key);
 
+// Handle logout
 const logoutLink = document.getElementById("logout");
 logoutLink.addEventListener("click", async function (event) {
   event.preventDefault();
