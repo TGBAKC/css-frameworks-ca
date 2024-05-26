@@ -5,10 +5,6 @@
 
 
 
-
-
-
-
 Description
 This is a front-end client for a social media platform called css-framework. The website is built using the Javascript. It is a part of the Noroff course to learn about Javascript.
 
@@ -52,7 +48,7 @@ Installing
 
 1.Clone the repo:
 
-[Google](https://www.google.com)
+[https://github.com/TGBAKC/css-frameworks-ca.git]
 
 
 2.Install the dependencies:
