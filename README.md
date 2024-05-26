@@ -8,12 +8,16 @@
 Description
 This is a front-end client for a social media platform called css-framework. The website is built using the Javascript. It is a part of the Noroff course to learn about Javascript.
 
-The task board for the project can be found (https://github.com/users/TGBAKC/projects/1)
+The task board for the project can be found 
+```bash
+https://github.com/users/TGBAKC/projects/1
+```
+
 
 
 
 **Features**
-~~     ~~
+_______
 - Register a new user (if they pass email criteria)
 - Login
 - Logout
