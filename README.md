@@ -12,7 +12,7 @@ This is a front-end client for a social media platform called css-framework. The
 [The full assignment description can be found here.] (link)
 
 
-[The task board for the project can be found] (https://example.com/assignment-description)
+[The task board for the project can be found][(https://github.com/users/TGBAKC/projects/1)]
 
 
 
