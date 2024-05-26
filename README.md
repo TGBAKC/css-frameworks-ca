@@ -34,6 +34,7 @@ The task board for the project can be found (https://github.com/users/TGBAKC/pro
 
 
 **Built With**
+_____
 
 The page is built with the following technologies:
 
@@ -42,21 +43,26 @@ The page is built with the following technologies:
 
 
 **Getting Started**
-~~
+______
 
 Installing
 
 1.Clone the repo:
-
-[https://github.com/TGBAKC/css-frameworks-ca.git]
-
+```bash
+https://github.com/TGBAKC/css-frameworks-ca.git
+```
 
 2.Install the dependencies:
+_______
 
-[npm install]
+```bash
+npm install
+```
 
 Running
+______
 
 To run the app in dev mode, run the following commands:
-
-[npm run dev]
+```bash
+npm run dev
+```
