@@ -13,8 +13,6 @@ https://github.com/users/TGBAKC/projects/1
 ```
 
 
-
-
 **Features**
 _______
 - Register a new user (if they pass email criteria)
@@ -48,7 +46,7 @@ The page is built with the following technologies:
 **Getting Started**
 ______
 
-Installing
+**Installing**
 
 1.Clone the repo:
 ```bash
@@ -62,7 +60,7 @@ _______
 npm install
 ```
 
-Running
+**Running**
 ______
 
 To run the app in dev mode, run the following commands:
